@@ -1,0 +1,17 @@
+{
+  "workers": {
+    "WORKER1": [
+      "gold",
+      1
+    ],
+    "WORKER2": [
+      "#CD853F",
+      2
+    ]
+  },
+  "telegram_token": "TELEGRAM_TOKEN",
+  "add": "ADD",
+  "db": "DB_NAME.db",
+  "table": "TABLE",
+  "version": "v0.1"
+}
