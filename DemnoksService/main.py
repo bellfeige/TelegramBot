@@ -20,6 +20,8 @@ from datetime import date
 import os
 import json
 
+# from DemnoksService.tele_bot.tele_bot import TeleBot
+from tele_bot.tele_bot import TeleBot
 # def get_sgd2cny(token):
 #     today = date.today()
 #     g = gp.pro_api(token=token)
@@ -65,7 +67,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    updater = Updater(get_tele_token(), use_context=True)
+    updater = Updater(TeleBot.get_tele_token(), use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
