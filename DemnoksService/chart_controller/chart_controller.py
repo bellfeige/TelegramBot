@@ -1,6 +1,3 @@
-from DemnoksService.tele_bot.tele_bot import TeleBot
-import os
-import numpy as np
 import matplotlib.pyplot as plt
 
 

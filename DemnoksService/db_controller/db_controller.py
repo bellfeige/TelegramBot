@@ -2,7 +2,7 @@ import sqlite3
 import random
 import string
 
-from DemnoksService.tele_bot.tele_bot import TeleBot
+from tele_bot.tele_bot import TeleBot
 
 
 class DBController(TeleBot):
