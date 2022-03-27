@@ -1,5 +1,4 @@
 import json
-
 import requests
 
 from tele_bot.tele_bot import TeleBot
@@ -35,6 +34,10 @@ class XMR(TeleBot):
             raise Exception(f"No stats data found")
         # print(f"getting {item} : {data[item]}")
         return data[item]
+
+    @staticmethod
+    def formated_duepay(due_payment):
+        return float(due_payment) / 1000000000000
 
 
 if __name__ == '__main__':

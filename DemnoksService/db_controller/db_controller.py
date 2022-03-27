@@ -1,14 +1,11 @@
-import json
 import sqlite3
-import os
-from datetime import date, datetime
 import random
 import string
 
 from DemnoksService.tele_bot.tele_bot import TeleBot
 
 
-class DBcontroller(TeleBot):
+class DBController(TeleBot):
     def __init__(self, db_name='DB.db', db_path='.', conn=None):
         super().__init__(self)
         self.db_name = db_name
@@ -81,3 +78,8 @@ class DBcontroller(TeleBot):
             print("Error! cannot create the database connection.")
             raise SystemExit("Error! cannot create the database connection.", None)
             # return None
+
+    @staticmethod
+    def rows_sorted(rows):
+        rows = sorted(rows, key=lambda x: x[0], reverse=True)
+        return rows
