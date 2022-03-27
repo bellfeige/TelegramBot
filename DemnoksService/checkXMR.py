@@ -7,12 +7,12 @@ from tele_bot.tele_bot import TeleBot
 
 class XMR(TeleBot):
     def __init__(self, add):
-        self.add = add
         super().__init__(self)
+        self.add = add
 
     @staticmethod
     def get_xmr_add(file='config.json', path='.'):
-        TeleBot.check_config_file(file=file, path=path)
+        TeleBot.find_file(file=file, path=path)
         with open(f"{path}/{file}") as f:
             config = json.load(f)
         token = config["add"]
@@ -33,7 +33,7 @@ class XMR(TeleBot):
     def get_stats_item(data, item='amtDue'):
         if data is None:
             raise Exception(f"No stats data found")
-        print(f"getting {item} : {data[item]}")
+        # print(f"getting {item} : {data[item]}")
         return data[item]
 
 

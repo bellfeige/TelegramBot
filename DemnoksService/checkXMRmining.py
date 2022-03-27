@@ -8,7 +8,6 @@ import string
 from itertools import groupby
 from operator import itemgetter
 
-import numpy
 import numpy as np
 import requests
 from multiprocessing.pool import ThreadPool

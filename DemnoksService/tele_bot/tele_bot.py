@@ -9,13 +9,13 @@ class TeleBot:
         self.token = token
 
     @staticmethod
-    def check_config_file(file='config.json', path='.'):
+    def find_file(file='config.json', path='.'):
         if not os.path.isfile(f'{path}/{file}'):
             raise Exception(f"No {file} found")
 
     @staticmethod
     def get_tele_token(file='config.json', path='.'):
-        TeleBot.check_config_file(file=file, path=path)
+        TeleBot.find_file(file=file, path=path)
         with open(f"{path}/{file}") as f:
             config = json.load(f)
         token = config["telegram_token"]
