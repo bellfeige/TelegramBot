@@ -18,6 +18,7 @@ if __name__ == '__main__':
         config = json.load(f)
     db_name = config['db']
     table_name = config['table']
+    # DB action
     db = DBController(db_name=db_name)
     db.init_db(create_table_sql=f'''
                     CREATE TABLE IF NOT EXISTS {table_name} (
@@ -39,6 +40,7 @@ if __name__ == '__main__':
     rows = DBController.rows_sorted(rows)
     print(rows)
 
+    # drar chart
     x_dt = sorted([r[2][:16] for r in rows][:8], reverse=False)
     y_dt = sorted([float(r[1][:]) for r in rows][:8], reverse=False)
     print(x_dt)
@@ -50,14 +52,14 @@ if __name__ == '__main__':
     else:
         figure_title = "!!!DEBUG!!! Monero Ocean Mining Due payment !!!DEBUG!!!"
     ChartController.init_chart(size_x=16, size_y=6, title=figure_title, label_x="Date Time", label_y="Due payment")
-    ChartController.fill_chart(x_dt, y_dt)
+    ChartController.set_chart_data(x_dt, y_dt)
     # plt.legend(loc="upper left", framealpha=0)
     save_path = 'xmrChart'
     img_name = 'latest'
 
     if args["action"]:
-        ChartController.chart_result(action=args["action"], save_path=save_path, img_name=img_name)
+        ChartController.show_chart_result(action=args["action"], save_path=save_path, img_name=img_name)
 
         bot.send_img_to(img=f"{save_path}\\{img_name}.png")
     else:
-        ChartController.chart_result(action='show', save_path=save_path, img_name=img_name)
+        ChartController.show_chart_result(action='show', save_path=save_path, img_name=img_name)

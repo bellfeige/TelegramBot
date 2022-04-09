@@ -13,11 +13,24 @@ class ChartController:
         plt.ylabel(label_y)
 
     @staticmethod
-    def fill_chart(x_dt, y_dt):
-        plt.plot(x_dt, y_dt)
+    def set_chart_data(x_dt, y_dt):
+        plt.plot(x_dt, y_dt, '-o')
+        for x, y in zip(x_dt, y_dt):
+            label = "{:.6f}".format(y)
+
+            plt.annotate(label,  # this is the text
+                         (x, y),  # these are the coordinates to position the label
+                         textcoords="offset points",  # how to position the text
+                         xytext=(0, 5),  # distance from text to points (x,y)
+                         ha='center')  # horizontal alignment can be left, right or center
 
     @staticmethod
-    def chart_result(action='show', bbox_inches='tight', save_path='.', img_name='latest'):
+    def set_chart_style():
+        # plt.plot( )
+        pass
+
+    @staticmethod
+    def show_chart_result(action='show', bbox_inches='tight', save_path='.', img_name='latest'):
         if action == 'show':
             plt.show()
         elif action == 'save':
